@@ -1,0 +1,1787 @@
+{
+  "format_version": "1.1",
+  "terraform_version": "1.3.4",
+  "variables": {
+    "secret_key": {
+      "value": "123"
+    }
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "docker_container.nginx",
+          "mode": "managed",
+          "type": "docker_container",
+          "name": "nginx",
+          "provider_name": "registry.terraform.io/kreuzwerker/docker",
+          "schema_version": 2,
+          "values": {
+            "attach": false,
+            "bridge": "",
+            "capabilities": [],
+            "command": [
+              "nginx",
+              "-g",
+              "daemon off;"
+            ],
+            "container_logs": null,
+            "cpu_set": "",
+            "cpu_shares": 0,
+            "destroy_grace_seconds": null,
+            "devices": [],
+            "dns": [],
+            "dns_opts": [],
+            "dns_search": [],
+            "domainname": "",
+            "entrypoint": [
+              "/docker-entrypoint.sh"
+            ],
+            "env": [],
+            "exit_code": null,
+            "gateway": "172.23.65.1",
+            "group_add": [],
+            "healthcheck": [],
+            "host": [],
+            "hostname": "5629ea4880f1",
+            "id": "5629ea4880f1830bda369abc70a7a70e86a957683d384cfdecf44efd26664865",
+            "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+            "init": false,
+            "ip_address": "172.23.65.2",
+            "ip_prefix_length": 24,
+            "ipc_mode": "private",
+            "labels": [],
+            "links": [],
+            "log_driver": "json-file",
+            "log_opts": {},
+            "logs": false,
+            "max_retry_count": 0,
+            "memory": 0,
+            "memory_swap": 0,
+            "mounts": [],
+            "must_run": true,
+            "name": "hello-terraform",
+            "network_alias": null,
+            "network_data": [
+              {
+                "gateway": "172.23.65.1",
+                "global_ipv6_address": "",
+                "global_ipv6_prefix_length": 0,
+                "ip_address": "172.23.65.2",
+                "ip_prefix_length": 24,
+                "ipv6_gateway": "",
+                "network_name": "bridge"
+              }
+            ],
+            "network_mode": "default",
+            "networks": null,
+            "networks_advanced": [],
+            "pid_mode": "",
+            "ports": [
+              {
+                "external": 8000,
+                "internal": 80,
+                "ip": "0.0.0.0",
+                "protocol": "tcp"
+              }
+            ],
+            "privileged": false,
+            "publish_all_ports": false,
+            "read_only": false,
+            "remove_volumes": true,
+            "restart": "no",
+            "rm": false,
+            "security_opts": [],
+            "shm_size": 64,
+            "start": true,
+            "stdin_open": false,
+            "storage_opts": {},
+            "sysctls": {},
+            "tmpfs": {},
+            "tty": false,
+            "ulimit": [],
+            "upload": [],
+            "user": "",
+            "userns_mode": "",
+            "volumes": [],
+            "working_dir": ""
+          },
+          "sensitive_values": {
+            "capabilities": [],
+            "command": [
+              false,
+              false,
+              false
+            ],
+            "devices": [],
+            "dns": [],
+            "dns_opts": [],
+            "dns_search": [],
+            "entrypoint": [
+              false
+            ],
+            "env": [],
+            "group_add": [],
+            "healthcheck": [],
+            "host": [],
+            "labels": [],
+            "links": [],
+            "log_opts": {},
+            "mounts": [],
+            "network_data": [
+              {}
+            ],
+            "networks_advanced": [],
+            "ports": [
+              {}
+            ],
+            "security_opts": [],
+            "storage_opts": {},
+            "sysctls": {},
+            "tmpfs": {},
+            "ulimit": [],
+            "upload": [],
+            "volumes": []
+          }
+        },
+        {
+          "address": "docker_image.nginx",
+          "mode": "managed",
+          "type": "docker_image",
+          "name": "nginx",
+          "provider_name": "registry.terraform.io/kreuzwerker/docker",
+          "schema_version": 0,
+          "values": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+            "keep_locally": false,
+            "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+            "name": "nginx:latest",
+            "output": null,
+            "pull_trigger": null,
+            "pull_triggers": null,
+            "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+          },
+          "sensitive_values": {
+            "build": []
+          }
+        },
+        {
+          "address": "random_pet.dog",
+          "mode": "managed",
+          "type": "random_pet",
+          "name": "dog",
+          "provider_name": "registry.terraform.io/hashicorp/random",
+          "schema_version": 0,
+          "values": {
+            "id": "daring-drum",
+            "keepers": null,
+            "length": 2,
+            "prefix": null,
+            "separator": "-"
+          },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.hello.random_pet.number_2",
+              "mode": "managed",
+              "type": "random_pet",
+              "name": "number_2",
+              "provider_name": "registry.terraform.io/hashicorp/random",
+              "schema_version": 0,
+              "values": {
+                "id": "beloved-fowl",
+                "keepers": {
+                  "hello": "daring-drum"
+                },
+                "length": 2,
+                "prefix": null,
+                "separator": "-"
+              },
+              "sensitive_values": {
+                "keepers": {}
+              }
+            },
+            {
+              "address": "module.hello.random_pet.server",
+              "mode": "managed",
+              "type": "random_pet",
+              "name": "server",
+              "provider_name": "registry.terraform.io/hashicorp/random",
+              "schema_version": 0,
+              "values": {
+                "keepers": {
+                  "hello": "daring-drum",
+                  "secret_key": "123"
+                },
+                "length": 2,
+                "prefix": null,
+                "separator": "-"
+              },
+              "sensitive_values": {
+                "keepers": {}
+              }
+            }
+          ],
+          "address": "module.hello"
+        },
+        {
+          "resources": [
+            {
+              "address": "module.nginx-pet.docker_container.nginx",
+              "mode": "managed",
+              "type": "docker_container",
+              "name": "nginx",
+              "provider_name": "registry.terraform.io/kreuzwerker/docker",
+              "schema_version": 2,
+              "values": {
+                "attach": false,
+                "bridge": "",
+                "capabilities": [],
+                "command": [
+                  "nginx",
+                  "-g",
+                  "daemon off;"
+                ],
+                "container_logs": null,
+                "cpu_set": "",
+                "cpu_shares": 0,
+                "destroy_grace_seconds": null,
+                "devices": [],
+                "dns": [],
+                "dns_opts": [],
+                "dns_search": [],
+                "domainname": "",
+                "entrypoint": [
+                  "/docker-entrypoint.sh"
+                ],
+                "env": [],
+                "exit_code": null,
+                "gateway": "172.23.65.1",
+                "group_add": [],
+                "healthcheck": [],
+                "host": [],
+                "hostname": "bf18060352da",
+                "id": "bf18060352da6c1c0ce38ba449beb501e69ef150a47e830205e0b7cb9c967bd8",
+                "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+                "init": false,
+                "ip_address": "172.23.65.3",
+                "ip_prefix_length": 24,
+                "ipc_mode": "private",
+                "labels": [],
+                "links": [],
+                "log_driver": "json-file",
+                "log_opts": {},
+                "logs": false,
+                "max_retry_count": 0,
+                "memory": 0,
+                "memory_swap": 0,
+                "mounts": [],
+                "must_run": true,
+                "name": "hello-daring-drum",
+                "network_alias": null,
+                "network_data": [
+                  {
+                    "gateway": "172.23.65.1",
+                    "global_ipv6_address": "",
+                    "global_ipv6_prefix_length": 0,
+                    "ip_address": "172.23.65.3",
+                    "ip_prefix_length": 24,
+                    "ipv6_gateway": "",
+                    "network_name": "bridge"
+                  }
+                ],
+                "network_mode": "default",
+                "networks": null,
+                "networks_advanced": [],
+                "pid_mode": "",
+                "ports": [
+                  {
+                    "external": 8001,
+                    "internal": 80,
+                    "ip": "0.0.0.0",
+                    "protocol": "tcp"
+                  }
+                ],
+                "privileged": false,
+                "publish_all_ports": false,
+                "read_only": false,
+                "remove_volumes": true,
+                "restart": "no",
+                "rm": false,
+                "security_opts": [],
+                "shm_size": 64,
+                "start": true,
+                "stdin_open": false,
+                "storage_opts": {},
+                "sysctls": {},
+                "tmpfs": {},
+                "tty": false,
+                "ulimit": [],
+                "upload": [],
+                "user": "",
+                "userns_mode": "",
+                "volumes": [],
+                "working_dir": ""
+              },
+              "sensitive_values": {
+                "capabilities": [],
+                "command": [
+                  false,
+                  false,
+                  false
+                ],
+                "devices": [],
+                "dns": [],
+                "dns_opts": [],
+                "dns_search": [],
+                "entrypoint": [
+                  false
+                ],
+                "env": [],
+                "group_add": [],
+                "healthcheck": [],
+                "host": [],
+                "labels": [],
+                "links": [],
+                "log_opts": {},
+                "mounts": [],
+                "network_data": [
+                  {}
+                ],
+                "networks_advanced": [],
+                "ports": [
+                  {}
+                ],
+                "security_opts": [],
+                "storage_opts": {},
+                "sysctls": {},
+                "tmpfs": {},
+                "ulimit": [],
+                "upload": [],
+                "volumes": []
+              }
+            },
+            {
+              "address": "module.nginx-pet.docker_image.nginx",
+              "mode": "managed",
+              "type": "docker_image",
+              "name": "nginx",
+              "provider_name": "registry.terraform.io/kreuzwerker/docker",
+              "schema_version": 0,
+              "values": {
+                "build": [],
+                "force_remove": null,
+                "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+                "keep_locally": false,
+                "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+                "name": "nginx:latest",
+                "output": null,
+                "pull_trigger": null,
+                "pull_triggers": null,
+                "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+              },
+              "sensitive_values": {
+                "build": []
+              }
+            }
+          ],
+          "address": "module.nginx-pet"
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "docker_container.nginx",
+      "mode": "managed",
+      "type": "docker_container",
+      "name": "nginx",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "attach": false,
+          "bridge": "",
+          "capabilities": [],
+          "command": [
+            "nginx",
+            "-g",
+            "daemon off;"
+          ],
+          "container_logs": null,
+          "cpu_set": "",
+          "cpu_shares": 0,
+          "destroy_grace_seconds": null,
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "domainname": "",
+          "entrypoint": [
+            "/docker-entrypoint.sh"
+          ],
+          "env": [],
+          "exit_code": null,
+          "gateway": "172.23.65.1",
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "hostname": "5629ea4880f1",
+          "id": "5629ea4880f1830bda369abc70a7a70e86a957683d384cfdecf44efd26664865",
+          "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "init": false,
+          "ip_address": "172.23.65.2",
+          "ip_prefix_length": 24,
+          "ipc_mode": "private",
+          "labels": [],
+          "links": [],
+          "log_driver": "json-file",
+          "log_opts": {},
+          "logs": false,
+          "max_retry_count": 0,
+          "memory": 0,
+          "memory_swap": 0,
+          "mounts": [],
+          "must_run": true,
+          "name": "hello-terraform",
+          "network_alias": null,
+          "network_data": [
+            {
+              "gateway": "172.23.65.1",
+              "global_ipv6_address": "",
+              "global_ipv6_prefix_length": 0,
+              "ip_address": "172.23.65.2",
+              "ip_prefix_length": 24,
+              "ipv6_gateway": "",
+              "network_name": "bridge"
+            }
+          ],
+          "network_mode": "default",
+          "networks": null,
+          "networks_advanced": [],
+          "pid_mode": "",
+          "ports": [
+            {
+              "external": 8000,
+              "internal": 80,
+              "ip": "0.0.0.0",
+              "protocol": "tcp"
+            }
+          ],
+          "privileged": false,
+          "publish_all_ports": false,
+          "read_only": false,
+          "remove_volumes": true,
+          "restart": "no",
+          "rm": false,
+          "security_opts": [],
+          "shm_size": 64,
+          "start": true,
+          "stdin_open": false,
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "tty": false,
+          "ulimit": [],
+          "upload": [],
+          "user": "",
+          "userns_mode": "",
+          "volumes": [],
+          "working_dir": ""
+        },
+        "after": {
+          "attach": false,
+          "bridge": "",
+          "capabilities": [],
+          "command": [
+            "nginx",
+            "-g",
+            "daemon off;"
+          ],
+          "container_logs": null,
+          "cpu_set": "",
+          "cpu_shares": 0,
+          "destroy_grace_seconds": null,
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "domainname": "",
+          "entrypoint": [
+            "/docker-entrypoint.sh"
+          ],
+          "env": [],
+          "exit_code": null,
+          "gateway": "172.23.65.1",
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "hostname": "5629ea4880f1",
+          "id": "5629ea4880f1830bda369abc70a7a70e86a957683d384cfdecf44efd26664865",
+          "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "init": false,
+          "ip_address": "172.23.65.2",
+          "ip_prefix_length": 24,
+          "ipc_mode": "private",
+          "labels": [],
+          "links": [],
+          "log_driver": "json-file",
+          "log_opts": {},
+          "logs": false,
+          "max_retry_count": 0,
+          "memory": 0,
+          "memory_swap": 0,
+          "mounts": [],
+          "must_run": true,
+          "name": "hello-terraform",
+          "network_alias": null,
+          "network_data": [
+            {
+              "gateway": "172.23.65.1",
+              "global_ipv6_address": "",
+              "global_ipv6_prefix_length": 0,
+              "ip_address": "172.23.65.2",
+              "ip_prefix_length": 24,
+              "ipv6_gateway": "",
+              "network_name": "bridge"
+            }
+          ],
+          "network_mode": "default",
+          "networks": null,
+          "networks_advanced": [],
+          "pid_mode": "",
+          "ports": [
+            {
+              "external": 8000,
+              "internal": 80,
+              "ip": "0.0.0.0",
+              "protocol": "tcp"
+            }
+          ],
+          "privileged": false,
+          "publish_all_ports": false,
+          "read_only": false,
+          "remove_volumes": true,
+          "restart": "no",
+          "rm": false,
+          "security_opts": [],
+          "shm_size": 64,
+          "start": true,
+          "stdin_open": false,
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "tty": false,
+          "ulimit": [],
+          "upload": [],
+          "user": "",
+          "userns_mode": "",
+          "volumes": [],
+          "working_dir": ""
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "capabilities": [],
+          "command": [
+            false,
+            false,
+            false
+          ],
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "entrypoint": [
+            false
+          ],
+          "env": [],
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "labels": [],
+          "links": [],
+          "log_opts": {},
+          "mounts": [],
+          "network_data": [
+            {}
+          ],
+          "networks_advanced": [],
+          "ports": [
+            {}
+          ],
+          "security_opts": [],
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        },
+        "after_sensitive": {
+          "capabilities": [],
+          "command": [
+            false,
+            false,
+            false
+          ],
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "entrypoint": [
+            false
+          ],
+          "env": [],
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "labels": [],
+          "links": [],
+          "log_opts": {},
+          "mounts": [],
+          "network_data": [
+            {}
+          ],
+          "networks_advanced": [],
+          "ports": [
+            {}
+          ],
+          "security_opts": [],
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        }
+      }
+    },
+    {
+      "address": "docker_image.nginx",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "nginx",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "build": [],
+          "force_remove": null,
+          "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+          "keep_locally": false,
+          "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "name": "nginx:latest",
+          "output": null,
+          "pull_trigger": null,
+          "pull_triggers": null,
+          "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+        },
+        "after": {
+          "build": [],
+          "force_remove": null,
+          "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+          "keep_locally": false,
+          "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "name": "nginx:latest",
+          "output": null,
+          "pull_trigger": null,
+          "pull_triggers": null,
+          "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "build": []
+        },
+        "after_sensitive": {
+          "build": []
+        }
+      }
+    },
+    {
+      "address": "module.hello.random_pet.number_2",
+      "module_address": "module.hello",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "number_2",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "id": "beloved-fowl",
+          "keepers": {
+            "hello": "daring-drum"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after": {
+          "id": "beloved-fowl",
+          "keepers": {
+            "hello": "daring-drum"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "keepers": {}
+        },
+        "after_sensitive": {
+          "keepers": {}
+        }
+      }
+    },
+    {
+      "address": "module.hello.random_pet.server",
+      "module_address": "module.hello",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "server",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "delete",
+          "create"
+        ],
+        "before": {
+          "id": "square-gelding",
+          "keepers": {
+            "hello": "daring-drum",
+            "secret_key": "1234"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after": {
+          "keepers": {
+            "hello": "daring-drum",
+            "secret_key": "123"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {
+          "id": true,
+          "keepers": {}
+        },
+        "before_sensitive": {
+          "keepers": {}
+        },
+        "after_sensitive": {
+          "keepers": {}
+        },
+        "replace_paths": [
+          [
+            "keepers"
+          ]
+        ]
+      },
+      "action_reason": "replace_because_cannot_update"
+    },
+    {
+      "address": "module.nginx-pet.docker_container.nginx",
+      "module_address": "module.nginx-pet",
+      "mode": "managed",
+      "type": "docker_container",
+      "name": "nginx",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "attach": false,
+          "bridge": "",
+          "capabilities": [],
+          "command": [
+            "nginx",
+            "-g",
+            "daemon off;"
+          ],
+          "container_logs": null,
+          "cpu_set": "",
+          "cpu_shares": 0,
+          "destroy_grace_seconds": null,
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "domainname": "",
+          "entrypoint": [
+            "/docker-entrypoint.sh"
+          ],
+          "env": [],
+          "exit_code": null,
+          "gateway": "172.23.65.1",
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "hostname": "bf18060352da",
+          "id": "bf18060352da6c1c0ce38ba449beb501e69ef150a47e830205e0b7cb9c967bd8",
+          "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "init": false,
+          "ip_address": "172.23.65.3",
+          "ip_prefix_length": 24,
+          "ipc_mode": "private",
+          "labels": [],
+          "links": [],
+          "log_driver": "json-file",
+          "log_opts": {},
+          "logs": false,
+          "max_retry_count": 0,
+          "memory": 0,
+          "memory_swap": 0,
+          "mounts": [],
+          "must_run": true,
+          "name": "hello-daring-drum",
+          "network_alias": null,
+          "network_data": [
+            {
+              "gateway": "172.23.65.1",
+              "global_ipv6_address": "",
+              "global_ipv6_prefix_length": 0,
+              "ip_address": "172.23.65.3",
+              "ip_prefix_length": 24,
+              "ipv6_gateway": "",
+              "network_name": "bridge"
+            }
+          ],
+          "network_mode": "default",
+          "networks": null,
+          "networks_advanced": [],
+          "pid_mode": "",
+          "ports": [
+            {
+              "external": 8001,
+              "internal": 80,
+              "ip": "0.0.0.0",
+              "protocol": "tcp"
+            }
+          ],
+          "privileged": false,
+          "publish_all_ports": false,
+          "read_only": false,
+          "remove_volumes": true,
+          "restart": "no",
+          "rm": false,
+          "security_opts": [],
+          "shm_size": 64,
+          "start": true,
+          "stdin_open": false,
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "tty": false,
+          "ulimit": [],
+          "upload": [],
+          "user": "",
+          "userns_mode": "",
+          "volumes": [],
+          "working_dir": ""
+        },
+        "after": {
+          "attach": false,
+          "bridge": "",
+          "capabilities": [],
+          "command": [
+            "nginx",
+            "-g",
+            "daemon off;"
+          ],
+          "container_logs": null,
+          "cpu_set": "",
+          "cpu_shares": 0,
+          "destroy_grace_seconds": null,
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "domainname": "",
+          "entrypoint": [
+            "/docker-entrypoint.sh"
+          ],
+          "env": [],
+          "exit_code": null,
+          "gateway": "172.23.65.1",
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "hostname": "bf18060352da",
+          "id": "bf18060352da6c1c0ce38ba449beb501e69ef150a47e830205e0b7cb9c967bd8",
+          "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "init": false,
+          "ip_address": "172.23.65.3",
+          "ip_prefix_length": 24,
+          "ipc_mode": "private",
+          "labels": [],
+          "links": [],
+          "log_driver": "json-file",
+          "log_opts": {},
+          "logs": false,
+          "max_retry_count": 0,
+          "memory": 0,
+          "memory_swap": 0,
+          "mounts": [],
+          "must_run": true,
+          "name": "hello-daring-drum",
+          "network_alias": null,
+          "network_data": [
+            {
+              "gateway": "172.23.65.1",
+              "global_ipv6_address": "",
+              "global_ipv6_prefix_length": 0,
+              "ip_address": "172.23.65.3",
+              "ip_prefix_length": 24,
+              "ipv6_gateway": "",
+              "network_name": "bridge"
+            }
+          ],
+          "network_mode": "default",
+          "networks": null,
+          "networks_advanced": [],
+          "pid_mode": "",
+          "ports": [
+            {
+              "external": 8001,
+              "internal": 80,
+              "ip": "0.0.0.0",
+              "protocol": "tcp"
+            }
+          ],
+          "privileged": false,
+          "publish_all_ports": false,
+          "read_only": false,
+          "remove_volumes": true,
+          "restart": "no",
+          "rm": false,
+          "security_opts": [],
+          "shm_size": 64,
+          "start": true,
+          "stdin_open": false,
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "tty": false,
+          "ulimit": [],
+          "upload": [],
+          "user": "",
+          "userns_mode": "",
+          "volumes": [],
+          "working_dir": ""
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "capabilities": [],
+          "command": [
+            false,
+            false,
+            false
+          ],
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "entrypoint": [
+            false
+          ],
+          "env": [],
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "labels": [],
+          "links": [],
+          "log_opts": {},
+          "mounts": [],
+          "network_data": [
+            {}
+          ],
+          "networks_advanced": [],
+          "ports": [
+            {}
+          ],
+          "security_opts": [],
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        },
+        "after_sensitive": {
+          "capabilities": [],
+          "command": [
+            false,
+            false,
+            false
+          ],
+          "devices": [],
+          "dns": [],
+          "dns_opts": [],
+          "dns_search": [],
+          "entrypoint": [
+            false
+          ],
+          "env": [],
+          "group_add": [],
+          "healthcheck": [],
+          "host": [],
+          "labels": [],
+          "links": [],
+          "log_opts": {},
+          "mounts": [],
+          "network_data": [
+            {}
+          ],
+          "networks_advanced": [],
+          "ports": [
+            {}
+          ],
+          "security_opts": [],
+          "storage_opts": {},
+          "sysctls": {},
+          "tmpfs": {},
+          "ulimit": [],
+          "upload": [],
+          "volumes": []
+        }
+      }
+    },
+    {
+      "address": "module.nginx-pet.docker_image.nginx",
+      "module_address": "module.nginx-pet",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "nginx",
+      "provider_name": "registry.terraform.io/kreuzwerker/docker",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "build": [],
+          "force_remove": null,
+          "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+          "keep_locally": false,
+          "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "name": "nginx:latest",
+          "output": null,
+          "pull_trigger": null,
+          "pull_triggers": null,
+          "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+        },
+        "after": {
+          "build": [],
+          "force_remove": null,
+          "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+          "keep_locally": false,
+          "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+          "name": "nginx:latest",
+          "output": null,
+          "pull_trigger": null,
+          "pull_triggers": null,
+          "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "build": []
+        },
+        "after_sensitive": {
+          "build": []
+        }
+      }
+    },
+    {
+      "address": "random_pet.dog",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "dog",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "id": "daring-drum",
+          "keepers": null,
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after": {
+          "id": "daring-drum",
+          "keepers": null,
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.3.4",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "docker_container.nginx",
+            "mode": "managed",
+            "type": "docker_container",
+            "name": "nginx",
+            "provider_name": "registry.terraform.io/kreuzwerker/docker",
+            "schema_version": 2,
+            "values": {
+              "attach": false,
+              "bridge": "",
+              "capabilities": [],
+              "command": [
+                "nginx",
+                "-g",
+                "daemon off;"
+              ],
+              "container_logs": null,
+              "cpu_set": "",
+              "cpu_shares": 0,
+              "destroy_grace_seconds": null,
+              "devices": [],
+              "dns": [],
+              "dns_opts": [],
+              "dns_search": [],
+              "domainname": "",
+              "entrypoint": [
+                "/docker-entrypoint.sh"
+              ],
+              "env": [],
+              "exit_code": null,
+              "gateway": "172.23.65.1",
+              "group_add": [],
+              "healthcheck": [],
+              "host": [],
+              "hostname": "5629ea4880f1",
+              "id": "5629ea4880f1830bda369abc70a7a70e86a957683d384cfdecf44efd26664865",
+              "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+              "init": false,
+              "ip_address": "172.23.65.2",
+              "ip_prefix_length": 24,
+              "ipc_mode": "private",
+              "labels": [],
+              "links": [],
+              "log_driver": "json-file",
+              "log_opts": {},
+              "logs": false,
+              "max_retry_count": 0,
+              "memory": 0,
+              "memory_swap": 0,
+              "mounts": [],
+              "must_run": true,
+              "name": "hello-terraform",
+              "network_alias": null,
+              "network_data": [
+                {
+                  "gateway": "172.23.65.1",
+                  "global_ipv6_address": "",
+                  "global_ipv6_prefix_length": 0,
+                  "ip_address": "172.23.65.2",
+                  "ip_prefix_length": 24,
+                  "ipv6_gateway": "",
+                  "network_name": "bridge"
+                }
+              ],
+              "network_mode": "default",
+              "networks": null,
+              "networks_advanced": [],
+              "pid_mode": "",
+              "ports": [
+                {
+                  "external": 8000,
+                  "internal": 80,
+                  "ip": "0.0.0.0",
+                  "protocol": "tcp"
+                }
+              ],
+              "privileged": false,
+              "publish_all_ports": false,
+              "read_only": false,
+              "remove_volumes": true,
+              "restart": "no",
+              "rm": false,
+              "security_opts": [],
+              "shm_size": 64,
+              "start": true,
+              "stdin_open": false,
+              "storage_opts": {},
+              "sysctls": {},
+              "tmpfs": {},
+              "tty": false,
+              "ulimit": [],
+              "upload": [],
+              "user": "",
+              "userns_mode": "",
+              "volumes": [],
+              "working_dir": ""
+            },
+            "sensitive_values": {
+              "capabilities": [],
+              "command": [
+                false,
+                false,
+                false
+              ],
+              "devices": [],
+              "dns": [],
+              "dns_opts": [],
+              "dns_search": [],
+              "entrypoint": [
+                false
+              ],
+              "env": [],
+              "group_add": [],
+              "healthcheck": [],
+              "host": [],
+              "labels": [],
+              "links": [],
+              "log_opts": {},
+              "mounts": [],
+              "network_data": [
+                {}
+              ],
+              "networks_advanced": [],
+              "ports": [
+                {}
+              ],
+              "security_opts": [],
+              "storage_opts": {},
+              "sysctls": {},
+              "tmpfs": {},
+              "ulimit": [],
+              "upload": [],
+              "volumes": []
+            },
+            "depends_on": [
+              "docker_image.nginx"
+            ]
+          },
+          {
+            "address": "docker_image.nginx",
+            "mode": "managed",
+            "type": "docker_image",
+            "name": "nginx",
+            "provider_name": "registry.terraform.io/kreuzwerker/docker",
+            "schema_version": 0,
+            "values": {
+              "build": [],
+              "force_remove": null,
+              "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+              "keep_locally": false,
+              "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+              "name": "nginx:latest",
+              "output": null,
+              "pull_trigger": null,
+              "pull_triggers": null,
+              "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+            },
+            "sensitive_values": {
+              "build": []
+            }
+          },
+          {
+            "address": "random_pet.dog",
+            "mode": "managed",
+            "type": "random_pet",
+            "name": "dog",
+            "provider_name": "registry.terraform.io/hashicorp/random",
+            "schema_version": 0,
+            "values": {
+              "id": "daring-drum",
+              "keepers": null,
+              "length": 2,
+              "prefix": null,
+              "separator": "-"
+            },
+            "sensitive_values": {}
+          }
+        ],
+        "child_modules": [
+          {
+            "resources": [
+              {
+                "address": "module.hello.random_pet.number_2",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "number_2",
+                "provider_name": "registry.terraform.io/hashicorp/random",
+                "schema_version": 0,
+                "values": {
+                  "id": "beloved-fowl",
+                  "keepers": {
+                    "hello": "daring-drum"
+                  },
+                  "length": 2,
+                  "prefix": null,
+                  "separator": "-"
+                },
+                "sensitive_values": {
+                  "keepers": {}
+                },
+                "depends_on": [
+                  "random_pet.dog"
+                ]
+              },
+              {
+                "address": "module.hello.random_pet.server",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "server",
+                "provider_name": "registry.terraform.io/hashicorp/random",
+                "schema_version": 0,
+                "values": {
+                  "id": "square-gelding",
+                  "keepers": {
+                    "hello": "daring-drum",
+                    "secret_key": "1234"
+                  },
+                  "length": 2,
+                  "prefix": null,
+                  "separator": "-"
+                },
+                "sensitive_values": {
+                  "keepers": {}
+                },
+                "depends_on": [
+                  "random_pet.dog"
+                ]
+              }
+            ],
+            "address": "module.hello"
+          },
+          {
+            "resources": [
+              {
+                "address": "module.nginx-pet.docker_container.nginx",
+                "mode": "managed",
+                "type": "docker_container",
+                "name": "nginx",
+                "provider_name": "registry.terraform.io/kreuzwerker/docker",
+                "schema_version": 2,
+                "values": {
+                  "attach": false,
+                  "bridge": "",
+                  "capabilities": [],
+                  "command": [
+                    "nginx",
+                    "-g",
+                    "daemon off;"
+                  ],
+                  "container_logs": null,
+                  "cpu_set": "",
+                  "cpu_shares": 0,
+                  "destroy_grace_seconds": null,
+                  "devices": [],
+                  "dns": [],
+                  "dns_opts": [],
+                  "dns_search": [],
+                  "domainname": "",
+                  "entrypoint": [
+                    "/docker-entrypoint.sh"
+                  ],
+                  "env": [],
+                  "exit_code": null,
+                  "gateway": "172.23.65.1",
+                  "group_add": [],
+                  "healthcheck": [],
+                  "host": [],
+                  "hostname": "bf18060352da",
+                  "id": "bf18060352da6c1c0ce38ba449beb501e69ef150a47e830205e0b7cb9c967bd8",
+                  "image": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+                  "init": false,
+                  "ip_address": "172.23.65.3",
+                  "ip_prefix_length": 24,
+                  "ipc_mode": "private",
+                  "labels": [],
+                  "links": [],
+                  "log_driver": "json-file",
+                  "log_opts": {},
+                  "logs": false,
+                  "max_retry_count": 0,
+                  "memory": 0,
+                  "memory_swap": 0,
+                  "mounts": [],
+                  "must_run": true,
+                  "name": "hello-daring-drum",
+                  "network_alias": null,
+                  "network_data": [
+                    {
+                      "gateway": "172.23.65.1",
+                      "global_ipv6_address": "",
+                      "global_ipv6_prefix_length": 0,
+                      "ip_address": "172.23.65.3",
+                      "ip_prefix_length": 24,
+                      "ipv6_gateway": "",
+                      "network_name": "bridge"
+                    }
+                  ],
+                  "network_mode": "default",
+                  "networks": null,
+                  "networks_advanced": [],
+                  "pid_mode": "",
+                  "ports": [
+                    {
+                      "external": 8001,
+                      "internal": 80,
+                      "ip": "0.0.0.0",
+                      "protocol": "tcp"
+                    }
+                  ],
+                  "privileged": false,
+                  "publish_all_ports": false,
+                  "read_only": false,
+                  "remove_volumes": true,
+                  "restart": "no",
+                  "rm": false,
+                  "security_opts": [],
+                  "shm_size": 64,
+                  "start": true,
+                  "stdin_open": false,
+                  "storage_opts": {},
+                  "sysctls": {},
+                  "tmpfs": {},
+                  "tty": false,
+                  "ulimit": [],
+                  "upload": [],
+                  "user": "",
+                  "userns_mode": "",
+                  "volumes": [],
+                  "working_dir": ""
+                },
+                "sensitive_values": {
+                  "capabilities": [],
+                  "command": [
+                    false,
+                    false,
+                    false
+                  ],
+                  "devices": [],
+                  "dns": [],
+                  "dns_opts": [],
+                  "dns_search": [],
+                  "entrypoint": [
+                    false
+                  ],
+                  "env": [],
+                  "group_add": [],
+                  "healthcheck": [],
+                  "host": [],
+                  "labels": [],
+                  "links": [],
+                  "log_opts": {},
+                  "mounts": [],
+                  "network_data": [
+                    {}
+                  ],
+                  "networks_advanced": [],
+                  "ports": [
+                    {}
+                  ],
+                  "security_opts": [],
+                  "storage_opts": {},
+                  "sysctls": {},
+                  "tmpfs": {},
+                  "ulimit": [],
+                  "upload": [],
+                  "volumes": []
+                },
+                "depends_on": [
+                  "module.nginx-pet.docker_image.nginx",
+                  "random_pet.dog"
+                ]
+              },
+              {
+                "address": "module.nginx-pet.docker_image.nginx",
+                "mode": "managed",
+                "type": "docker_image",
+                "name": "nginx",
+                "provider_name": "registry.terraform.io/kreuzwerker/docker",
+                "schema_version": 0,
+                "values": {
+                  "build": [],
+                  "force_remove": null,
+                  "id": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39fnginx:latest",
+                  "keep_locally": false,
+                  "latest": "sha256:76c69feac34e85768b284f84416c3546b240e8cb4f68acbbe5ad261a8b36f39f",
+                  "name": "nginx:latest",
+                  "output": null,
+                  "pull_trigger": null,
+                  "pull_triggers": null,
+                  "repo_digest": "nginx@sha256:943c25b4b66b332184d5ba6bb18234273551593016c0e0ae906bab111548239f"
+                },
+                "sensitive_values": {
+                  "build": []
+                }
+              }
+            ],
+            "address": "module.nginx-pet"
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "docker": {
+        "name": "docker",
+        "full_name": "registry.terraform.io/kreuzwerker/docker",
+        "version_constraint": "~> 2.16.0"
+      },
+      "random": {
+        "name": "random",
+        "full_name": "registry.terraform.io/hashicorp/random",
+        "version_constraint": "3.1.0"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "docker_container.nginx",
+          "mode": "managed",
+          "type": "docker_container",
+          "name": "nginx",
+          "provider_config_key": "docker",
+          "expressions": {
+            "image": {
+              "references": [
+                "docker_image.nginx.latest",
+                "docker_image.nginx"
+              ]
+            },
+            "name": {
+              "constant_value": "hello-terraform"
+            },
+            "ports": [
+              {
+                "external": {
+                  "constant_value": 8000
+                },
+                "internal": {
+                  "constant_value": 80
+                }
+              }
+            ]
+          },
+          "schema_version": 2
+        },
+        {
+          "address": "docker_image.nginx",
+          "mode": "managed",
+          "type": "docker_image",
+          "name": "nginx",
+          "provider_config_key": "docker",
+          "expressions": {
+            "keep_locally": {
+              "constant_value": false
+            },
+            "name": {
+              "constant_value": "nginx:latest"
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "random_pet.dog",
+          "mode": "managed",
+          "type": "random_pet",
+          "name": "dog",
+          "provider_config_key": "random",
+          "expressions": {
+            "length": {
+              "constant_value": 2
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "hello": {
+          "source": "joatmon08/hello/random",
+          "expressions": {
+            "hello": {
+              "references": [
+                "random_pet.dog.id",
+                "random_pet.dog"
+              ]
+            },
+            "secret_key": {
+              "references": [
+                "var.secret_key"
+              ]
+            }
+          },
+          "module": {
+            "outputs": {
+              "pet": {
+                "expression": {
+                  "references": [
+                    "random_pet.server.id",
+                    "random_pet.server"
+                  ]
+                }
+              }
+            },
+            "resources": [
+              {
+                "address": "random_pet.number_2",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "number_2",
+                "provider_config_key": "random",
+                "expressions": {
+                  "keepers": {
+                    "references": [
+                      "var.hello"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "random_pet.server",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "server",
+                "provider_config_key": "random",
+                "expressions": {
+                  "keepers": {
+                    "references": [
+                      "var.hello",
+                      "var.secret_key"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "variables": {
+              "hello": {
+                "description": "just a string with who we want to greet"
+              },
+              "secret_key": {
+                "description": "this is a secret"
+              }
+            }
+          },
+          "version_constraint": "3.0.1"
+        },
+        "nginx-pet": {
+          "source": "./nginx",
+          "expressions": {
+            "container_name": {
+              "references": [
+                "random_pet.dog.id",
+                "random_pet.dog"
+              ]
+            },
+            "nginx_port": {
+              "constant_value": 8001
+            }
+          },
+          "module": {
+            "resources": [
+              {
+                "address": "docker_container.nginx",
+                "mode": "managed",
+                "type": "docker_container",
+                "name": "nginx",
+                "provider_config_key": "docker",
+                "expressions": {
+                  "image": {
+                    "references": [
+                      "docker_image.nginx.latest",
+                      "docker_image.nginx"
+                    ]
+                  },
+                  "name": {
+                    "references": [
+                      "var.container_name"
+                    ]
+                  },
+                  "ports": [
+                    {
+                      "external": {
+                        "references": [
+                          "var.nginx_port"
+                        ]
+                      },
+                      "internal": {
+                        "constant_value": 80
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 2
+              },
+              {
+                "address": "docker_image.nginx",
+                "mode": "managed",
+                "type": "docker_image",
+                "name": "nginx",
+                "provider_config_key": "docker",
+                "expressions": {
+                  "keep_locally": {
+                    "constant_value": false
+                  },
+                  "name": {
+                    "constant_value": "nginx:latest"
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "variables": {
+              "container_name": {
+                "description": "NGINX container's name"
+              },
+              "nginx_port": {
+                "description": "NGINX container's external port number"
+              }
+            }
+          }
+        }
+      },
+      "variables": {
+        "secret_key": {}
+      }
+    }
+  },
+  "relevant_attributes": [
+    {
+      "resource": "module.hello.random_pet.server",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "random_pet.dog",
+      "attribute": [
+        "id"
+      ]
+    }
+  ]
+}
