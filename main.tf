@@ -21,7 +21,6 @@ resource "random_pet" "dog" {
 
 module "nginx-pet" {
   source = "./nginx"
-
   container_name = "hello-${random_pet.dog.id}"
   nginx_port     = 8001
 }
@@ -29,7 +28,6 @@ module "nginx-pet" {
 module "hello" {
   source  = "joatmon08/hello/random"
   version = "3.0.1"
-
   hello      = random_pet.dog.id
   secret_key = var.secret_key
 }
